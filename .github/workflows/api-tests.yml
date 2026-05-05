@@ -1,0 +1,42 @@
+name: API Tests - Petstore
+
+on:
+  push:
+    paths:
+      - "api-tests/**"
+  pull_request:
+    paths:
+      - "api-tests/**"
+  workflow_dispatch:
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        working-directory: api-tests
+        run: pip install -r requirements.txt
+
+      - name: Create reports directory
+        working-directory: api-tests
+        run: mkdir -p reports
+
+      - name: Run API tests
+        working-directory: api-tests
+        run: pytest
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-report
+          path: api-tests/reports/report.html
