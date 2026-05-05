@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 
 
@@ -12,12 +13,14 @@ class CheckoutPage(BasePage):
     SUMMARY_TOTAL = (By.CLASS_NAME, "summary_total_label")
 
     def fill_info(self, first, last, postal):
+        self.wait.until(EC.url_contains("checkout-step-one"))
         self.type(self.FIRST_NAME, first)
         self.type(self.LAST_NAME, last)
         self.type(self.POSTAL_CODE, postal)
         self.click(self.CONTINUE_BTN)
 
     def finish_purchase(self):
+        self.wait.until(EC.url_contains("checkout-step-two"))
         self.click(self.FINISH_BTN)
 
     def get_confirmation_message(self):
