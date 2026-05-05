@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 
 
@@ -12,7 +13,9 @@ class InventoryPage(BasePage):
         return self.get_text(self.TITLE)
 
     def add_product_by_index(self, index=0):
-        buttons = self.driver.find_elements(*self.ADD_BTN)
+        buttons = self.wait.until(
+            EC.presence_of_all_elements_located(self.ADD_BTN)
+        )
         buttons[index].click()
 
     def get_cart_count(self):
