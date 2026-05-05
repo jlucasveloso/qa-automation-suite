@@ -9,6 +9,7 @@ class CartPage(BasePage):
 
     def get_item_count(self):
         try:
+            self.wait.until(EC.url_contains("cart"))
             self.wait.until(EC.presence_of_element_located(self.ITEMS))
             return len(self.driver.find_elements(*self.ITEMS))
         except Exception:
