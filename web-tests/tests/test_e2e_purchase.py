@@ -49,11 +49,10 @@ class TestE2EPurchaseFlow:
         inventory = InventoryPage(driver)
         inventory.add_product_by_index(0)
         inventory.add_product_by_index(1)
+        assert inventory.get_cart_count() == 2
         inventory.go_to_cart()
 
         cart = CartPage(driver)
-        assert cart.get_item_count() == 2
-
         cart.proceed_to_checkout()
 
         checkout = CheckoutPage(driver)
