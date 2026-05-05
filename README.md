@@ -5,35 +5,36 @@ Projeto de automação de testes cobrindo API REST (Swagger Petstore) e Web E2E 
 ---
 
 ## Estrutura do Repositório
-qa-automation-suite/
-├── api-tests/
-│   ├── tests/
-│   │   ├── test_pet.py
-│   │   ├── test_user.py
-│   │   └── test_store.py
-│   ├── utils/
-│   │   └── api_client.py
-│   ├── conftest.py
-│   ├── pytest.ini
-│   └── requirements.txt
-│
-├── web-tests/
-│   ├── pages/
-│   │   ├── base_page.py
-│   │   ├── login_page.py
-│   │   ├── inventory_page.py
-│   │   ├── cart_page.py
-│   │   └── checkout_page.py
-│   ├── tests/
-│   │   └── test_e2e_purchase.py
-│   ├── conftest.py
-│   ├── pytest.ini
-│   └── requirements.txt
-│
-└── .github/
-└── workflows/
-├── api-tests.yml
-└── web-tests.yml
+
+    qa-automation-suite/
+    ├── api-tests/
+    │   ├── tests/
+    │   │   ├── test_pet.py
+    │   │   ├── test_user.py
+    │   │   └── test_store.py
+    │   ├── utils/
+    │   │   └── api_client.py
+    │   ├── conftest.py
+    │   ├── pytest.ini
+    │   └── requirements.txt
+    │
+    ├── web-tests/
+    │   ├── pages/
+    │   │   ├── base_page.py
+    │   │   ├── login_page.py
+    │   │   ├── inventory_page.py
+    │   │   ├── cart_page.py
+    │   │   └── checkout_page.py
+    │   ├── tests/
+    │   │   └── test_e2e_purchase.py
+    │   ├── conftest.py
+    │   ├── pytest.ini
+    │   └── requirements.txt
+    │
+    └── .github/
+        └── workflows/
+            ├── api-tests.yml
+            └── web-tests.yml
 
 ---
 
